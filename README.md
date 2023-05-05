@@ -17,10 +17,12 @@
 2. Install Node.js from website
     - Check if Node.js is installed
     - node -v
-2. Install TypeScript using bash command
+3. Install TypeScript using bash command
     - Install using any command prompt/terminal
     - npm install -g typescript
     - tsc -v
+4. (Optional) Iniitialize TypeScript config 
+    - tsc --init
 
 ## **How to use**:
  1. Running with HTML
