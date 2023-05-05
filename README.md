@@ -26,5 +26,6 @@
  1. Running with HTML
      - Call the compiler to convert typescript files into javascript files
      - tsc \<filename>.ts
+     - Open HTML in browser
  2. Running TypeScript directly
      - ts-node \<filename>.ts
