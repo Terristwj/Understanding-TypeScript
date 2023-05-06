@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var button = document.querySelector("button");
 var input1 = document.getElementById("num1");
 var input2 = document.getElementById("num2");
