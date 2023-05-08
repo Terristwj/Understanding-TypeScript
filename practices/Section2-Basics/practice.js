@@ -9,6 +9,16 @@ var type7;
 (function (type7) {
 })(type7 || (type7 = {}));
 var type8;
+var type9; // Union
+var type10; // Literal
+var type12 = function () { }; // Function
+var type13;
+type13(type12); // Function w/ callback
+var type14; // Unknown - More restrictive than 'any' (Must if-else check before using)
+// Never - only used when the function never ends
+function type15(errorMsg, code) {
+    throw { message: errorMsg, errorCode: code };
+}
 // 12) Checking Types
 console.log(typeof type1);
 console.log(typeof type1 === "number");
@@ -92,7 +102,7 @@ function undefinedFunction(n1, n2) {
 function voidFunction() {
     console.log("Does nothing");
 }
-// 28) Function as Types
+// 27) Function as Types
 var printVoid = voidFunction;
 printVoid();
 printVoid = function () {
@@ -105,7 +115,7 @@ addTwoNumbers = function (n1, n2) {
     return n1 + n2;
 };
 console.log(addTwoNumbers(5, 5)); // OUT: 10
-// 29) Function Types & Callbacks
+// 28) Function Types & Callbacks
 // A callback is a function passed as an argument to another function
 function addNumbersInArray(arr1, addNum) {
     var total = 0;
@@ -125,3 +135,28 @@ function addNumbersInArray2(arr1) {
     return total;
 }
 console.log(addNumbersInArray2(numberArray)); // OUT: 45
+// 29) The 'unknown' Type
+var itemUnkown;
+var aString;
+itemUnkown = "Can";
+if (typeof itemUnkown === "string") {
+    aString = itemUnkown;
+}
+// Unkown vs Any
+var itemAny;
+itemAny = "Cup";
+aString = itemAny;
+// 30) The 'never' Type
+function neverEndingLoop() {
+    while (true) { }
+}
+function generateError(msg, code) {
+    throw { myMsg: msg, Errorcode: code };
+}
+try {
+    var msg = generateError("My error", 555); // Code crashes here
+}
+catch (_a) {
+    console.log(msg); // Undefined - No return value
+    console.log("next line");
+}

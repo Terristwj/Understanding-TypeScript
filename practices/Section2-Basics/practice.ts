@@ -7,6 +7,17 @@ let type5: string[]; // Array
 let type6: [number]; // Tuple
 enum type7 {}
 let type8: any;
+let type9: string | string[]; // Union
+let type10: "readOnly"; // Literal
+type type11 = "alias"; // Type
+let type12 = () => {}; // Function
+let type13: (custFunction) => void;
+type13(type12); // Function w/ callback
+let type14: unknown; // Unknown - More restrictive than 'any' (Must if-else check before using)
+// Never - only used when the function never ends
+function type15(errorMsg: string, code: number): never {
+  throw { message: errorMsg, errorCode: code };
+}
 
 // 12) Checking Types
 console.log(typeof type1);
@@ -112,7 +123,7 @@ function voidFunction(): void {
   console.log("Does nothing");
 }
 
-// 28) Function as Types
+// 27) Function as Types
 let printVoid: Function = voidFunction;
 printVoid();
 printVoid = () => {
@@ -126,7 +137,7 @@ addTwoNumbers = (n1, n2) => {
 };
 console.log(addTwoNumbers(5, 5)); // OUT: 10
 
-// 29) Function Types & Callbacks
+// 28) Function Types & Callbacks
 // A callback is a function passed as an argument to another function
 function addNumbersInArray(
   arr1: number[],
@@ -150,3 +161,29 @@ function addNumbersInArray2(arr1: number[]) {
   return total;
 }
 console.log(addNumbersInArray2(numberArray)); // OUT: 45
+
+// 29) The 'unknown' Type
+let itemUnkown: unknown;
+let aString: string;
+itemUnkown = "Can";
+if (typeof itemUnkown === "string") {
+  aString = itemUnkown;
+}
+// Unkown vs Any
+let itemAny: any;
+itemAny = "Cup";
+aString = itemAny;
+
+// 30) The 'never' Type
+function neverEndingLoop(): never {
+  while (true) {}
+}
+function generateError(msg: string, code: number): never {
+  throw { myMsg: msg, Errorcode: code };
+}
+try {
+  var msg = generateError("My error", 555); // Code crashes here
+} catch {
+  console.log(msg); // Undefined - No return value
+  console.log("next line");
+}
