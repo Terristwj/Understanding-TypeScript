@@ -103,7 +103,50 @@ sampleVar = 1;
 type mealType = "appetizer" | "main course"; // Custom type
 const curMeal: mealType = "main course";
 
-//
-function myFunc1(n1: number, n2: number): undefined {
+// 26) Function Return Types & 'void'
+function undefinedFunction(n1: number, n2: number): undefined {
   return;
 }
+// ': void' can be removed
+function voidFunction(): void {
+  console.log("Does nothing");
+}
+
+// 28) Function as Types
+let printVoid: Function = voidFunction;
+printVoid();
+printVoid = () => {
+  console.log("Does something");
+};
+printVoid();
+// Variable with fixed I/O function
+let addTwoNumbers: (n1: number, n2: number) => number;
+addTwoNumbers = (n1, n2) => {
+  return n1 + n2;
+};
+console.log(addTwoNumbers(5, 5)); // OUT: 10
+
+// 29) Function Types & Callbacks
+// A callback is a function passed as an argument to another function
+function addNumbersInArray(
+  arr1: number[],
+  addNum: (n1: number, n2: number) => number
+) {
+  let total: number = 0;
+  arr1.forEach((num) => {
+    total = addNum(total, num);
+  });
+  return total;
+}
+let numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(addNumbersInArray(numberArray, addTwoNumbers)); // OUT: 45
+
+// Above is the same as below
+function addNumbersInArray2(arr1: number[]) {
+  let total: number = 0;
+  arr1.forEach((num) => {
+    total += num;
+  });
+  return total;
+}
+console.log(addNumbersInArray2(numberArray)); // OUT: 45

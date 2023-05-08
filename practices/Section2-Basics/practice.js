@@ -80,7 +80,48 @@ function combine(input1, input2, conversionType // Literal Types
 }
 console.log(combine(1, 2, "as-number"));
 console.log(combine("Tom", "Sham", "as-number"));
-//
-function myFunc1(n1, n2) {
+console.log(combine("Tom", "Sham", "as-string"));
+var sampleVar = "a";
+sampleVar = 1;
+var curMeal = "main course";
+// 26) Function Return Types & 'void'
+function undefinedFunction(n1, n2) {
     return;
 }
+// ': void' can be removed
+function voidFunction() {
+    console.log("Does nothing");
+}
+// 28) Function as Types
+var printVoid = voidFunction;
+printVoid();
+printVoid = function () {
+    console.log("Does something");
+};
+printVoid();
+// Variable with fixed I/O function
+var addTwoNumbers;
+addTwoNumbers = function (n1, n2) {
+    return n1 + n2;
+};
+console.log(addTwoNumbers(5, 5)); // OUT: 10
+// 29) Function Types & Callbacks
+// A callback is a function passed as an argument to another function
+function addNumbersInArray(arr1, addNum) {
+    var total = 0;
+    arr1.forEach(function (num) {
+        total = addNum(total, num);
+    });
+    return total;
+}
+var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(addNumbersInArray(numberArray, addTwoNumbers)); // OUT: 45
+// Above is the same as below
+function addNumbersInArray2(arr1) {
+    var total = 0;
+    arr1.forEach(function (num) {
+        total += num;
+    });
+    return total;
+}
+console.log(addNumbersInArray2(numberArray)); // OUT: 45
