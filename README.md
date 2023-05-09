@@ -32,6 +32,12 @@ Paid Udemy Course
       "filename"
    }
    </code></pre>
+   - Add include '\<filename>'
+     - Only files inside include will be compiled
+     <pre><code>"include": {
+        "filename"
+     }
+     </code></pre>
 
 ## **How to use**:
 
