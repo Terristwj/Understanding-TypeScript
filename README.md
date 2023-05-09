@@ -26,6 +26,12 @@ Paid Udemy Course
    - tsc -v
 4. (Optional) Iniitialize TypeScript config
    - tsc --init
+   - Now able to run 'tsc' to compile every typescript file
+   - Add exclude '\<filename>'
+   <pre><code>"exclude": {
+      "\<filename>"
+   }
+   </code></pre>
 
 ## **How to use**:
 
