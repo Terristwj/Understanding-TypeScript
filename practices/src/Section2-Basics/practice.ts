@@ -11,7 +11,7 @@ let type9: string | string[]; // Union
 let type10: "readOnly"; // Literal
 type type11 = "alias"; // Type
 let type12 = () => {}; // Function
-let type13: (custFunction) => void;
+let type13: (custFunction: Function) => void = () => {};
 type13(type12); // Function w/ callback
 let type14: unknown; // Unknown - More restrictive than 'any' (Must if-else check before using)
 // Never - only used when the function never ends
@@ -184,6 +184,6 @@ function generateError(msg: string, code: number): never {
 try {
   var msg = generateError("My error", 555); // Code crashes here
 } catch {
-  console.log(msg); // Undefined - No return value
+  // msg -> Undefined
   console.log("next line");
 }

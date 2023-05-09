@@ -1,3 +1,4 @@
+"use strict";
 // 11) Types
 let type1 = 1.3; // All numbers, int & float
 let type2 = "a"; // Single quote '', Double quote "", Backtick ``
@@ -12,7 +13,7 @@ let type8;
 let type9; // Union
 let type10; // Literal
 let type12 = () => { }; // Function
-let type13;
+let type13 = () => { };
 type13(type12); // Function w/ callback
 let type14; // Unknown - More restrictive than 'any' (Must if-else check before using)
 // Never - only used when the function never ends
@@ -157,6 +158,6 @@ try {
     var msg = generateError("My error", 555); // Code crashes here
 }
 catch (_a) {
-    console.log(msg); // Undefined - No return value
+    // msg -> Undefined
     console.log("next line");
 }
