@@ -38,6 +38,9 @@ Paid Udemy Course
         "filename"
      }
      </code></pre>
+   - Allows for watch mode
+     - tsc -w
+     - Auto compiles typescript files
 
 ## **How to use**:
 
