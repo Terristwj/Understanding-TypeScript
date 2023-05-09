@@ -29,7 +29,7 @@ Paid Udemy Course
    - Now able to run 'tsc' to compile every typescript file
    - Add exclude '\<filename>'
    <pre><code>"exclude": {
-      "\<filename>"
+      "filename"
    }
    </code></pre>
 
