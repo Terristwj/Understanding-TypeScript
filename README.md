@@ -1,7 +1,7 @@
 # Understanding TypeScript
-
-Paid Udemy Course
-
+> Udemy Paid Course
+---
+![Certificate](https://udemy-certificate.s3.amazonaws.com/image/UC-c98eebda-4988-4f72-a266-376f83cc12e0.jpg)
 ---
 
 ## **Prerequisites**:
